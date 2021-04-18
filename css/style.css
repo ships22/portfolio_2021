@@ -175,6 +175,24 @@ img {
   }
 }
 
+.section-title {
+  background-color: red;
+  padding: 0 15px;
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: center;
+}
+.section-title h2 {
+  background-color: blueviolet;
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 700;
+}
+.section-title h2::before {
+  content: attr(data-heading);
+  display: block;
+}
+
 /* -----------
     header
 -------------*/
@@ -401,3 +419,7 @@ header {
   border-radius: 50%;
   border: 10px solid transparent;
 }
+
+/* -----------
+    about  
+-------------*/
