@@ -23,6 +23,10 @@
     }
   })
 })()
+
+function bodyScrollingToggle() {
+  document.body.classList.toggle('stop-scrolling')
+}
 // porfolio filter and popup -
 ;(() => {
   const filterContainer = document.querySelector('.portfolio-filter'),
@@ -59,5 +63,73 @@
         }
       })
     }
+  })
+
+  portfolioItemsContainer.addEventListener('click', (event) => {
+    if (event.target.closest('.portfolio-item-inner')) {
+      const portfolioItem = event.target.closest(
+        '.portfolio-item-inner'
+      ).parentElement
+      //get the portfolioItem index -
+      itemIndex = Array.from(portfolioItem.parentElement.children).indexOf(
+        portfolioItem
+      )
+      screenshots = portfolioItems[itemIndex]
+        .querySelector('.portfolio-item-img img')
+        .getAttribute('data-screenshots')
+      //convert screenshots into array -
+      screenshots = screenshots.split(',')
+      if (screenshots.length === 1) {
+        prevBtn.style.display = 'none'
+        nextBtn.style.display = 'none'
+      } else {
+        prevBtn.style.display = 'block'
+        nextBtn.style.display = 'block'
+      }
+      slideIndex = 0
+      popupToggle()
+      popupSlideShow()
+    }
+  })
+
+  closeBtn.addEventListener('click', () => {
+    popupToggle()
+  })
+
+  function popupToggle() {
+    popup.classList.toggle('open')
+    bodyScrollingToggle()
+  }
+
+  function popupSlideShow() {
+    const imgSrc = screenshots[slideIndex]
+    const popupImg = popup.querySelector('.pp-img')
+    // activate loader until the popupImage loaded -
+    popup.querySelector('.pp-loader').classList.remove('active')
+    popupImg.src = imgSrc
+    popupImg.onload = () => {
+      // deactivate loader after the popupImg loaded -
+      popup.querySelector('.pp-loader').classList.remove('active')
+    }
+    popup.querySelector('.pp-counter').innerHTML =
+      slideIndex + 1 + ' of ' + screenshots.length
+  }
+  //next -
+  nextBtn.addEventListener('click', () => {
+    if (slideIndex === screenshots.length - 1) {
+      slideIndex = 0
+    } else {
+      slideIndex++
+    }
+    popupSlideShow()
+  })
+  //prev -
+  prevBtn.addEventListener('click', () => {
+    if (slideIndex === 0) {
+      slideIndex = screenshots.length - 1
+    } else {
+      slideIndex--
+    }
+    popupSlideShow()
   })
 })()
