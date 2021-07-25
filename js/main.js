@@ -37,7 +37,7 @@ function bodyScrollingToggle() {
     nextBtn = popup.querySelector('.pp-next'),
     closeBtn = popup.querySelector('.pp-close'),
     projectDetailsContainer = popup.querySelector('.pp-details'),
-    pojectDetailsBtn = popup.querySelector('.pp-project-details-btn')
+    projectDetailsBtn = popup.querySelector('.pp-project-details-btn')
   let itemsIndex, slideIndex, screenshots
 
   // filter portfolio items -
@@ -89,6 +89,7 @@ function bodyScrollingToggle() {
       slideIndex = 0
       popupToggle()
       popupSlideShow()
+      popupDetails()
     }
   })
 
@@ -130,6 +131,42 @@ function bodyScrollingToggle() {
     } else {
       slideIndex--
     }
-    popupSlideShow()
   })
+  function popupDetails() {
+    //if no details
+    // if (!portfolioItems[itemIndex].querySelector('.portfolio-item-details')) {
+    //   projectDetailsBtn.style.display = 'none'
+    //   return
+    // }
+    // get project details
+    const details = portfolioItems[itemIndex].querySelector(
+      '.portfolio-item-details'
+    ).innerHTML
+    popup.querySelector('.pp-project-details').innerHTML = details
+    const title = portfolioItems[itemIndex].querySelector(
+      '.portfolio-item-title'
+    ).innerHTML
+    popup.querySelector('.pp-title h2').innerHTML = title
+    // const category = portfolioItems[itemIndex].getAnimations('data-category')
+
+    // ****************// here to start on part 4*********************
+  }
+  projectDetailsBtn.addEventListener('click', () => {
+    popupDetailsToggle()
+  })
+  function popupDetailsToggle() {
+    if (projectDetailsContainer.classList.contains('active')) {
+      projectDetailsContainer.classList.remove('active')
+      projectDetailsContainer.style.maxHeight = 0 + 'px'
+      projectDetailsBtn.querySelector('i').classList.remove('fa-minus')
+      projectDetailsBtn.querySelector('i').classList.add('fa-plus')
+    } else {
+      projectDetailsBtn.querySelector('i').classList.remove('fa-plus')
+      projectDetailsBtn.querySelector('i').classList.add('fa-minus')
+      projectDetailsContainer.classList.add('active')
+      projectDetailsContainer.style.maxHeight =
+        projectDetailsContainer.scrollHeight + 'px'
+      popup.scrollTo(0, projectDetailsContainer.offsetTop)
+    }
+  }
 })()
