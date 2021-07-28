@@ -25,7 +25,7 @@
 })()
 
 function bodyScrollingToggle() {
-  document.body.classList.toggle('stop-scrolling')
+  document.body.classList.toggle('hidden-scrolling')
 }
 // porfolio filter and popup -
 ;(() => {
@@ -95,6 +95,9 @@ function bodyScrollingToggle() {
 
   closeBtn.addEventListener('click', () => {
     popupToggle()
+    if (projectDetailsContainer.classList.contains('active')) {
+      popupDetailsToggle()
+    }
   })
 
   function popupToggle() {
@@ -133,23 +136,26 @@ function bodyScrollingToggle() {
     }
   })
   function popupDetails() {
-    //if no details
-    // if (!portfolioItems[itemIndex].querySelector('.portfolio-item-details')) {
-    //   projectDetailsBtn.style.display = 'none'
-    //   return
-    // }
+    // if no details
+    if (!portfolioItems[itemIndex].querySelector('.portfolio-item-details')) {
+      projectDetailsBtn.style.display = 'none'
+      return
+    }
+    projectDetailsBtn.style.display = 'block'
     // get project details
     const details = portfolioItems[itemIndex].querySelector(
       '.portfolio-item-details'
     ).innerHTML
+    // set project details -
     popup.querySelector('.pp-project-details').innerHTML = details
     const title = portfolioItems[itemIndex].querySelector(
       '.portfolio-item-title'
     ).innerHTML
     popup.querySelector('.pp-title h2').innerHTML = title
-    // const category = portfolioItems[itemIndex].getAnimations('data-category')
-
-    // ****************// here to start on part 4*********************
+    const category = portfolioItems[itemIndex].getAttribute('data-category')
+    popup.querySelector('.pp-project-category').innerHTML = category
+      .split('-')
+      .join('')
   }
   projectDetailsBtn.addEventListener('click', () => {
     popupDetailsToggle()
