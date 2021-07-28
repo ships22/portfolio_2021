@@ -1063,3 +1063,16 @@ header {
 .portfolio-popup .pp-next {
   right: 15px;
 }
+
+/* ---------------------
+    testimonial
+----------------------*/
+.testimonial-section {
+  padding: 80px 0 80px;
+  min-height: 100vh;
+}
+.testimonial-section .testi-box {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
