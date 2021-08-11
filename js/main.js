@@ -1,5 +1,17 @@
-// about section -
+/*----------------------------------- navigation ----------------------------*/
+;(() => {
+  const hamburgerBtn = document.querySelector('.hamburger-btn'),
+    navMenu = document.querySelector('.nav-menu'),
+    closeNavBtn = navMenu.querySelector('.close-nav-menu')
 
+  hamburgerBtn.addEventListener('click', showNavMenu)
+  closeNavBtn.addEventListener('click', showNavMenu)
+  function showNavMenu() {
+    navMenu.classList.toggle('open')
+  }
+})()
+
+// about section -
 ;(() => {
   const aboutSection = document.querySelector('.about-section'),
     tabsContainer = document.querySelector('.about-tabs')
@@ -223,3 +235,13 @@ function bodyScrollingToggle() {
   slider()
 })()
 //  ************** 3:20s part 7 ********************
+
+/*----------------------------------- hide all except active ----------------------------*/
+;(() => {
+  const sections = document.querySelectorAll('.section')
+  sections.forEach((section) => {
+    if (!section.classList.contains('active')) {
+      section.classList.add('hide')
+    }
+  })
+})()
