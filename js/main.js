@@ -45,7 +45,6 @@
           e.target.classList.add('active', 'inner-shadow')
           e.target.classList.remove('outer-shadow', 'hover-on-shadow')
           hideNavMenu()
-          console.log('here 1')
         } else {
           let navItems = navMenu.querySelectorAll('.link-item')
           navItems.forEach((item) => {
