@@ -1,5 +1,5 @@
 /*----------------------------------- navigation ----------------------------*/
-// 13:00*******************
+
 ;(() => {
   const hamburgerBtn = document.querySelector('.hamburger-btn'),
     navMenu = document.querySelector('.nav-menu'),

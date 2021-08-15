@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style_switcher.css" />
     <link rel="stylesheet" href="css/font_awesome.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style_switcher.css" />
     <link rel="stylesheet" href="css/color-1.css" />
     <title>dev&design</title>
   </head>
@@ -697,26 +699,7 @@
       </div>
     </div>
     <!-- portfolio popup end -->
-    <!-- style/theme swithcer  -->
-    <div class="style-switcher outer-shadow">
-      <div class="style-toggler s-icon outer-shadow hoveron-shadow">
-        <i class="fas fa-cog fa-spin"></i>
-      </div>
-      <div class="day-night c-ic outer-shadow hover-on-shadow">
-        <i class="fas fa-moon"></i>
-      </div>
-      <h4>Theme colours</h4>
-      <div class="colors">
-        span*5>.color-$
-        <span class="color-1"></span>
-        <span class="color-2"></span
-        >
-        <span class="color-3"></span>
-        <span class="color-4"></span
-        ><span class="color-5"></span>
-      </div>
-    </div>
-    <!-- style/theme swithcer end-->
+
     <!-- testimonial start  -->
     <section class="testimonial-section section" id="testimonial">
       <div class="container">
@@ -876,7 +859,26 @@
       </div>
     </section>
     <!-- contact end  -->
+    <!-- style/theme swithcer  -->
+    <div class="style-switcher outer-shadow">
+      <div class="style-switcher-toggler s-icon outer-shadow hover-on-shadow">
+        <i class="fas fa-cog fa-spin"></i>
+      </div>
+      <div class="day-night s-icon outer-shadow hover-on-shadow">
+        <i class="fas fa-moon"></i>
+      </div>
+      <h4>Theme colours</h4>
+      <div class="colors">
+        <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+        <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+        <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+        <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+      </div>
+    </div>
+    <!-- style/theme swithcer end-->
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <script src="js/style_switcher.js"></script>
   </body>
 </html>
