@@ -1,5 +1,4 @@
 // ************** toggle style switcher *************
-// 58 mins -
 
 const styleSwitcherToggler = document.querySelector('.style-switcher-toggler')
 
