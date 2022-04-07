@@ -1318,3 +1318,14 @@ header {
   text-align: right;
   padding: 0 15px;
 }
+
+/* media query fix _ mobile  */
+@media (max-width: 448px){
+  .widthFix {
+    position: relative;
+  }
+  .widthFix span{
+    position: absolute;
+    left: 80px;
+  }
+}
